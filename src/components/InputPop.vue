@@ -2,7 +2,7 @@
   <div class="Push">
     <p class="inputText">숫자입력:</p>
     <div>
-      <input type="number" v-model="inputValue"/>
+      <input type="number" v-model="inputValue" maxlength="5" oninput="this.value = this.value.slice(0, 5).replace(/\D/g, '')"/>
       <button @click="pushClick" class="pushButton">Push</button>
     </div>
   </div>
@@ -15,10 +15,13 @@
   </div>
   <div class="v-line">
     <label class="stackText">스택 이미지</label>
+
     <div class="stack-container">
-      <div class="stack-box" v-for="(item, index) in stackState" :key="index">{{ item }}</div>
+      <div v-if="stackState.length > 0" class="outer-box">
+        <div class="stack-box" v-for="(item, index) in stackState" :key="index">{{ item }}</div>
+      </div>
     </div>
-    <label class="stackText">로그 메세지</label>
+    <label class="logText">로그 메세지</label>
     <div class="area-container">
       <textarea class="downScroll" rows="10" cols="20" v-model="textAreaValue"></textarea>
     </div>
@@ -76,7 +79,6 @@
     flex-direction: column-reverse;
   }
   .stack-box {
-    width: 100%;
     border: 1px solid black;
     padding: 15px;
     margin-bottom: 5px;
@@ -87,9 +89,17 @@
     display: flex;
     padding: 10px;
   }
+  .logText{
+    display: flex;
+    padding: 10px;
+    position: relative;
+    top: 50px;
+  }
   .area-container {
     display: flex;
     padding: 10px;
+    position: relative;
+    top: 50px;
   }
   .v-line{
     border-left: solid #000;
@@ -118,5 +128,13 @@
   .pushButton{
     margin-left: 10px;
   }
-
+  /*스택 이미지를 감싸는 box */
+  .outer-box {
+    border: 2px solid #ccc;
+    padding: 15px;
+    display: inline-flex;
+    width: 80px;
+    margin: 10px;
+    flex-direction: column-reverse;
+  }
 </style>
