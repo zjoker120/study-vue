@@ -37,11 +37,9 @@
     const sizes = Array.from({ length: 99 }, (_, index) => (index + 1).toString());
     const pageMove = () => {
         routes.push('/InputPop');
-
     };
 
 </script>
-
 
 <style scoped>
 

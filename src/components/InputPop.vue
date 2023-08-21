@@ -21,6 +21,7 @@
         <div class="stack-box" v-for="(item, index) in stackState" :key="index">{{ item }}</div>
       </div>
     </div>
+    <button @click="resetStack" class="resetButton">Reset</button>
     <label class="logText">로그 메세지</label>
     <div class="area-container">
       <textarea class="downScroll" rows="10" cols="20" v-model="textAreaValue"></textarea>
@@ -61,7 +62,10 @@
     textAreaValue.value = `${textAreaValue.value}${message}\n`;
   };
 
-
+  const resetStack = () => {
+    stackState.value = [];
+    textAreaValue.value = '';
+  };
 
 
 
@@ -136,5 +140,11 @@
     width: 80px;
     margin: 10px;
     flex-direction: column-reverse;
+  }
+
+
+  /* Reset 버튼 */
+  .resetButton {
+    margin-top: 10px;
   }
 </style>
