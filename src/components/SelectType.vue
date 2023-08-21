@@ -4,12 +4,12 @@
             <h1>Type 선택</h1>
             <div>
                 <label>
-                    <input type="radio" v-model="selectedType" value="문자열" /> 문자열
+                    <input type="radio" v-model="selectedType" value="string" /> 문자열
                 </label>
             </div>
             <div>
                 <label>
-                    <input type="radio" v-model="selectedType" value="숫자" /> 숫자
+                    <input type="radio" v-model="selectedType" value="number" /> 숫자
                 </label>
             </div>
             <p>선택된 타입: {{ selectedType }}</p>
@@ -46,16 +46,16 @@
     .left {
         text-align: left;
         margin-top: 120px;
-    }
+        margin-left: 50px;}
 
     .size {
         text-align: center;
-        margin-top: 0px;
+        margin-top: -150px;
 
     }
 
     .moveButton {
         text-align: center;
-        margin-top: 220px; /* 버튼 위 간격 설정 */
+        margin-top: 300px; /* 버튼 위 간격 설정 */
     }
 </style>

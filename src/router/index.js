@@ -10,7 +10,7 @@ const router = createRouter({
         },
         {
             path: "/InputPop",
-            name: "test",
+            name: "InputPop",
             component: () => import("../components/InputPop.vue"),
         },
     ],

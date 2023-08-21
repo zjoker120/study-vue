@@ -1,8 +1,8 @@
 <template>
   <div class="Push">
-    <p class="inputText">숫자입력:</p>
+    <p class="inputText">입력:</p>
     <div>
-      <input type="number" v-model="inputValue" maxlength="5" oninput="this.value = this.value.slice(0, 5).replace(/\D/g, '')"/>
+      <input type="text" v-model="inputValue" maxlength="5"/>
       <button @click="pushClick" class="pushButton">Push</button>
     </div>
   </div>
@@ -14,14 +14,14 @@
     </div>
   </div>
   <div class="v-line">
+    <button @click="resetStack" class="resetButton">Reset</button>
     <label class="stackText">스택 이미지</label>
-
     <div class="stack-container">
       <div v-if="stackState.length > 0" class="outer-box">
         <div class="stack-box" v-for="(item, index) in stackState" :key="index">{{ item }}</div>
       </div>
     </div>
-    <button @click="resetStack" class="resetButton">Reset</button>
+
     <label class="logText">로그 메세지</label>
     <div class="area-container">
       <textarea class="downScroll" rows="10" cols="20" v-model="textAreaValue"></textarea>
@@ -146,5 +146,6 @@
   /* Reset 버튼 */
   .resetButton {
     margin-top: 10px;
+    margin-left: 200px;
   }
 </style>
