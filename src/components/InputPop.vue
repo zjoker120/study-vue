@@ -2,7 +2,11 @@
   <div class="Push">
     <p class="inputText">입력:</p>
     <div>
-      <input type="text" v-model="inputValue" maxlength="5"/>
+      <input :type="selectedType === 'number' ? 'number' : 'text'"
+             v-model="inputValue"
+             maxlength="5"
+             @input="handleInput"
+      />
       <button @click="pushClick" class="pushButton">Push</button>
     </div>
   </div>
@@ -35,12 +39,13 @@
 
 <script setup>
   import { ref } from 'vue';
-
+  import { useRoute } from 'vue-router';
+  const route = useRoute();
+  const selectedType = route.query.selectedType || '';
   const inputValue = ref(0);
   const stackState = ref([]);
   const popValue = ref('');
   const textAreaValue = ref('');
-
   const pushClick = () => {
     if (inputValue.value === null || inputValue.value === '') {
       return;
@@ -71,6 +76,14 @@
     textAreaValue.value = '';
   };
 
+  const handleInput = () => {
+    // const selectedType = route.query.selectedType; // Use the selectedType from the route
+    if (selectedType === 'string') {
+      inputValue.value = inputValue.value.toString().replace(/[^a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]/g, '').slice(0, 6);
+    } else if (selectedType === 'number') {
+      inputValue.value = inputValue.value.toString().replace(/[^0-9]/g, '').slice(0, 6); // 숫자만 남기고 문자 제거
+    }
+  };
 
 
 </script>

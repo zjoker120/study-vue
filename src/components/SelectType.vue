@@ -24,10 +24,7 @@
     <div class="moveButton">
         <button @click="pageMove">생성</button>
     </div>
-        <div>
-            <button @click="types">Check Type</button>
-            <button @click="Size">size: </button>
-        </div>
+
 </template>
 
 <script setup>
@@ -48,17 +45,7 @@
             },
         });
     };
-    const types = () => {
-        if(selectedType.value === 'string'){
-            console.log('문자열 선택 ');
-        }else (
-            console.log('숫자 선택')
-        )
-    }
 
-    const Size = () =>{
-        console.log(selectedSize.value);
-    }
 
 </script>
 
