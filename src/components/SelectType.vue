@@ -1,5 +1,5 @@
 <template>
-    <div class="left">
+    <div class="choosetype">
         <div >
             <h1>Type 선택</h1>
             <div>
@@ -24,6 +24,10 @@
     <div class="moveButton">
         <button @click="pageMove">생성</button>
     </div>
+        <div>
+            <button @click="types">Check Type</button>
+            <button @click="Size">size: </button>
+        </div>
 </template>
 
 <script setup>
@@ -36,14 +40,31 @@
     const selectedType = ref(null);
     const sizes = Array.from({ length: 99 }, (_, index) => (index + 1).toString());
     const pageMove = () => {
-        routes.push('/InputPop');
+        routes.push({
+            path: '/InputPop',
+            query: {
+                selectedType: selectedType.value,
+                selectedSize: selectedSize.value,
+            },
+        });
     };
+    const types = () => {
+        if(selectedType.value === 'string'){
+            console.log('문자열 선택 ');
+        }else (
+            console.log('숫자 선택')
+        )
+    }
+
+    const Size = () =>{
+        console.log(selectedSize.value);
+    }
 
 </script>
 
 <style scoped>
 
-    .left {
+    .choosetype {
         text-align: left;
         margin-top: 120px;
         margin-left: 50px;}

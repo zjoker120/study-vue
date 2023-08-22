@@ -27,6 +27,10 @@
       <textarea class="downScroll" rows="10" cols="20" v-model="textAreaValue"></textarea>
     </div>
   </div>
+  <div>
+    <p>Selected Type: {{ this.$route.query.selectedType }}</p>
+    <p>Selected Size: {{ this.$route.query.selectedSize }}</p>
+  </div>
 </template>
 
 <script setup>
