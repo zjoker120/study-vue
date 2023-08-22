@@ -35,7 +35,9 @@
     const routes = useRouter();
 
     const selectedType = ref(null);
+    //사이즈 조절 1-99까지
     const sizes = Array.from({ length: 99 }, (_, index) => (index + 1).toString());
+    //버튼 클릭시 이벤트 발생
     const pageMove = () => {
         routes.push({
             path: '/InputPop',
@@ -50,18 +52,18 @@
 </script>
 
 <style scoped>
-
+    /*타입 위치*/
     .choosetype {
         text-align: left;
         margin-top: 120px;
         margin-left: 50px;}
-
+    /*크기 위치*/
     .size {
         text-align: center;
         margin-top: -150px;
 
     }
-
+    /*페이지 이동 버튼*/
     .moveButton {
         text-align: center;
         margin-top: 300px; /* 버튼 위 간격 설정 */

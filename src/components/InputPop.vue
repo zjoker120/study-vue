@@ -35,17 +35,24 @@
     <p>Selected Type: {{ this.$route.query.selectedType }}</p>
     <p>Selected Size: {{ this.$route.query.selectedSize }}</p>
   </div>
+  <div>
+    <button @click="selecttypeMove" class="stMove">타입선택 이동</button>
+  </div>
 </template>
 
 <script setup>
   import { ref } from 'vue';
-  import { useRoute } from 'vue-router';
+  import {useRoute, useRouter} from 'vue-router';
   const route = useRoute();
+  const routes = useRouter();
   const selectedType = route.query.selectedType || '';
   const inputValue = ref(0);
   const stackState = ref([]);
   const popValue = ref('');
   const textAreaValue = ref('');
+
+
+  //스택 추가
   const pushClick = () => {
     if (inputValue.value === null || inputValue.value === '') {
       return;
@@ -55,7 +62,7 @@
     updateStackState(pushMessage);
     inputValue.value = '';
   };
-
+  //팝업 추출
   const popClick = () => {
     if (stackState.value.length > 0) {
       const poppedValue = stackState.value.pop();
@@ -65,25 +72,31 @@
       popValue.value = '';
     }
   };
-
+  //로그 메세지
   const updateStackState = (message) => {
     stackState.value = [...stackState.value];
     textAreaValue.value = `${textAreaValue.value}${message}\n`;
   };
-
+  //스택이미지 초기화
   const resetStack = () => {
     stackState.value = [];
     textAreaValue.value = '';
   };
-
+  //문자열 받을지 숫자 받을지
   const handleInput = () => {
-    // const selectedType = route.query.selectedType; // Use the selectedType from the route
     if (selectedType === 'string') {
-      inputValue.value = inputValue.value.toString().replace(/[^a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]/g, '').slice(0, 6);
+      inputValue.value = inputValue.value.toString().replace(/[^a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
     } else if (selectedType === 'number') {
-      inputValue.value = inputValue.value.toString().replace(/[^0-9]/g, '').slice(0, 6); // 숫자만 남기고 문자 제거
+      inputValue.value = inputValue.value.toString().replace(/[^0-9]/g, '').slice(0, 6);
     }
   };
+  //페이지 이동
+  const selecttypeMove = () => {
+    routes.push({
+      path: '/',
+    });
+  }
+
 
 
 </script>
@@ -122,6 +135,7 @@
     position: relative;
     top: 50px;
   }
+  /*가운데 선*/
   .v-line{
     border-left: solid #000;
     height:100%;
@@ -164,5 +178,10 @@
   .resetButton {
     margin-top: 10px;
     margin-left: 200px;
+  }
+  /*페이지 이동 위치*/
+  .stMove{
+    text-align: center;
+    margin-top: 10px;
   }
 </style>
