@@ -18,7 +18,7 @@
     <label class="stackText">스택 이미지</label>
     <div class="stack-container">
       <div v-if="stackState.length > 0" class="outer-box">
-        <div class="stack-box" v-for="(item, index) in stackState" :key="index">{{ item }}</div>
+        <div class="stack-box" v-for="(item, index) in stackState" :key="index" :style="{ fontSize: `${this.$route.query.selectedSize}px` }" >{{ item }}</div>
       </div>
     </div>
 
