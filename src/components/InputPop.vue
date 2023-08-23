@@ -31,7 +31,7 @@
       <textarea class="downScroll" rows="10" cols="20" v-model="textAreaValue"></textarea>
     </div>
   </div>
-  <div>
+  <div class="info">
     <p>Selected Type: {{ this.$route.query.selectedType }}</p>
     <p>Selected Size: {{ this.$route.query.selectedSize }}</p>
   </div>
@@ -99,11 +99,12 @@
     margin-right: 10px;
   }
   .stack-container {
-    width: 10px;
+    width: 250px; /* Set a fixed width for the container */
     padding: 10px;
     margin: 10px;
     display: flex;
     flex-direction: column-reverse;
+
   }
   .stack-box {
     border: 1px solid black;
@@ -172,9 +173,11 @@
     margin-top: 10px;
     margin-left: 200px;
   }
-  /*페이지 이동 위치*/
-  .stMove{
-    text-align: center;
-    margin-top: 10px;
+
+  .info {
+    position: absolute;
+    top: 500px;
+    left: 0;
+    padding: 10px;
   }
 </style>
