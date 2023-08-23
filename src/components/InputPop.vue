@@ -35,9 +35,6 @@
     <p>Selected Type: {{ this.$route.query.selectedType }}</p>
     <p>Selected Size: {{ this.$route.query.selectedSize }}</p>
   </div>
-  <div>
-    <button @click="selecttypeMove" class="stMove">타입선택 이동</button>
-  </div>
 </template>
 
 <script setup>
@@ -79,23 +76,19 @@
   };
   //스택이미지 초기화
   const resetStack = () => {
-    stackState.value = [];
-    textAreaValue.value = '';
+    routes.push({
+      path: '/',
+    });
   };
   //문자열 받을지 숫자 받을지
   const handleInput = () => {
     if (selectedType === 'string') {
-      inputValue.value = inputValue.value.toString().replace(/[^a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+      inputValue.value = inputValue.value.toString();
     } else if (selectedType === 'number') {
       inputValue.value = inputValue.value.toString().replace(/[^0-9]/g, '').slice(0, 6);
     }
   };
-  //페이지 이동
-  const selecttypeMove = () => {
-    routes.push({
-      path: '/',
-    });
-  }
+
 
 
 

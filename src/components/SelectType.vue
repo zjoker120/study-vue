@@ -28,13 +28,15 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue';
+    import { ref  } from 'vue';
     import { useRouter } from 'vue-router';
+
+
     const selectedSize = ref('17');
 
     const routes = useRouter();
 
-    const selectedType = ref(null);
+    const selectedType = ref('string');
     //사이즈 조절 1-99까지
     const sizes = Array.from({ length: 99 }, (_, index) => (index + 1).toString());
     //버튼 클릭시 이벤트 발생
