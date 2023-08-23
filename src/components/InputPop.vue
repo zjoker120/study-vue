@@ -35,7 +35,6 @@
     <p>Selected Type: {{ this.$route.query.selectedType }}</p>
     <p>Selected Size: {{ this.$route.query.selectedSize }}</p>
   </div>
-  <p>{{selectedSize}}</p>
 </template>
 
 <script setup>
