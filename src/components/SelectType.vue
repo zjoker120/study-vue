@@ -16,8 +16,8 @@
         </div>
     </div>
     <div class="size">
-        <label for="fontSize">크기: </label>
-        <select v-model="selectedSize" id="fontSize">
+        <label for="boxSize">크기: </label>
+        <select v-model="selectedSize" id="boxSize">
             <option v-for="size in sizes" :key="size" :value="size">{{ size }}</option>
         </select>
     </div>
@@ -32,13 +32,13 @@
     import { useRouter } from 'vue-router';
 
 
-    const selectedSize = ref('17');
+    const selectedSize = ref('5');
 
     const routes = useRouter();
 
     const selectedType = ref('string');
-    //사이즈 조절 1-99까지
-    const sizes = Array.from({ length: 99 }, (_, index) => (index + 1).toString());
+    //스택갯수 조절 1-99까지
+    const sizes = Array.from({ length: 10 }, (_, index) => (index + 1).toString());
     //버튼 클릭시 이벤트 발생
     const pageMove = () => {
         routes.push({

@@ -7,7 +7,7 @@
              maxlength="5"
              @input="handleInput"
       />
-      <button @click="pushClick" class="pushButton">Push</button>
+      <button v-if="clickCount < selectedSize" @click="pushClick" class="pushButton">Push</button>
     </div>
   </div>
   <div class="pop">
@@ -22,7 +22,7 @@
     <label class="stackText">스택 이미지</label>
     <div class="stack-container">
       <div v-if="stackState.length > 0" class="outer-box">
-        <div class="stack-box" v-for="(item, index) in stackState" :key="index" :style="{ fontSize: `${this.$route.query.selectedSize}px` }" >{{ item }}</div>
+        <div class="stack-box" v-for="(item, index) in stackState" :key="index" >{{ item }}</div>
       </div>
     </div>
 
@@ -40,6 +40,7 @@
 <script setup>
   import { ref } from 'vue';
   import {useRoute, useRouter} from 'vue-router';
+
   const route = useRoute();
   const routes = useRouter();
   const selectedType = route.query.selectedType || '';
@@ -47,8 +48,8 @@
   const stackState = ref([]);
   const popValue = ref('');
   const textAreaValue = ref('');
-
-
+  const selectedSize = route.query.selectedSize;
+  const clickCount = ref(0);
   //스택 추가
   const pushClick = () => {
     if (inputValue.value === null || inputValue.value === '') {
@@ -58,6 +59,10 @@
     stackState.value.push(inputValue.value);
     updateStackState(pushMessage);
     inputValue.value = '';
+
+    if (clickCount.value < selectedSize) {
+      clickCount.value += 1;
+    }
   };
   //팝업 추출
   const popClick = () => {
