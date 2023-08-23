@@ -32,7 +32,7 @@
     import { useRouter } from 'vue-router';
 
 
-    const selectedSize = ref('5');
+    const selectedSize = ref('2');
 
     const routes = useRouter();
 

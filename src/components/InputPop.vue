@@ -7,7 +7,7 @@
              maxlength="5"
              @input="handleInput"
       />
-      <button v-if="clickCount < selectedSize" @click="pushClick" class="pushButton">Push</button>
+      <button @click="pushClick" class="pushButton">Push</button>
     </div>
   </div>
   <div class="pop">
@@ -35,12 +35,12 @@
     <p>Selected Type: {{ this.$route.query.selectedType }}</p>
     <p>Selected Size: {{ this.$route.query.selectedSize }}</p>
   </div>
+  <p>{{selectedSize}}</p>
 </template>
 
 <script setup>
   import { ref } from 'vue';
   import {useRoute, useRouter} from 'vue-router';
-
   const route = useRoute();
   const routes = useRouter();
   const selectedType = route.query.selectedType || '';
@@ -49,20 +49,22 @@
   const popValue = ref('');
   const textAreaValue = ref('');
   const selectedSize = route.query.selectedSize;
-  const clickCount = ref(0);
+
+
+
   //스택 추가
   const pushClick = () => {
     if (inputValue.value === null || inputValue.value === '') {
+      return;
+    }
+    if(stackState.value.length >= selectedSize){
+      alert("더이상 입력하실수 없습니다.");
       return;
     }
     const pushMessage = `입력: ${inputValue.value}`;
     stackState.value.push(inputValue.value);
     updateStackState(pushMessage);
     inputValue.value = '';
-
-    if (clickCount.value < selectedSize) {
-      clickCount.value += 1;
-    }
   };
   //팝업 추출
   const popClick = () => {
@@ -72,7 +74,9 @@
       updateStackState(`추출: ${poppedValue}`);
     } else {
       popValue.value = '';
+      alert("마지막추출입니다.")
     }
+
   };
   //로그 메세지
   const updateStackState = (message) => {
