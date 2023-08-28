@@ -16,6 +16,7 @@
         padding: 20px 0;
         text-align: left;
         font-size: 14px;
+        margin-bottom: 0px;
     }
 
     .Header ul {

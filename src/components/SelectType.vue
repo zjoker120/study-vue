@@ -59,7 +59,7 @@
     /*타입 위치*/
     .choosetype {
         text-align: left;
-        margin-top: 120px;
+        margin-top: 0px;
         margin-left: 50px;}
     /*크기 위치*/
     .size {

@@ -134,21 +134,22 @@
     display: flex;
     padding: 10px;
     position: relative;
-    top: 50px;
+    top: 20px;
   }
   .area-container {
     display: flex;
     padding: 10px;
     position: relative;
-    top: 50px;
+    top: 20px;
   }
   /*가운데 선*/
   .v-line{
     border-left: solid #000;
-    height:100%;
+    height: 50%;
     left: 50%;
     position: relative;
     align-items: center;
+    margin-top: 0px;
   }
   /*input 입력/버튼 */
   .Push {
@@ -156,7 +157,7 @@
     display: flex;
     align-items: center;
     margin-right: 20px;
-    top: 160px;
+    top: 20px;
   }
   /*pop 버튼/출력*/
   .pop {
@@ -164,7 +165,7 @@
     align-items: center;
     margin-right: 20px;
     position: relative;
-    top: 210px;
+    top: 30px;
   }
   /*버튼 위치 */
   .pushButton{
@@ -183,13 +184,13 @@
 
   /* Reset 버튼 */
   .resetButton {
-    margin-top: 10px;
+    margin-top: 0px;
     margin-left: 200px;
   }
 
   .info {
     position: absolute;
-    top: 500px;
+    top: 330px;
     left: 0;
     padding: 10px;
   }
