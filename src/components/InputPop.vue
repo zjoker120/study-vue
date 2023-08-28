@@ -1,4 +1,6 @@
 <template>
+  <div>
+    <Header />
   <div class="Push">
     <p class="inputText">입력:</p>
     <div>
@@ -35,11 +37,14 @@
     <p>Selected Type: {{ this.$route.query.selectedType }}</p>
     <p>Selected Size: {{ this.$route.query.selectedSize }}</p>
   </div>
+  </div>
 </template>
 
 <script setup>
   import { ref } from 'vue';
   import {useRoute, useRouter} from 'vue-router';
+  import Header from '@/components/Header.vue';
+
   const route = useRoute();
   const routes = useRouter();
   const selectedType = route.query.selectedType || '';

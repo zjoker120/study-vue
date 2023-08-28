@@ -1,4 +1,6 @@
 <template>
+    <div>
+        <Header />
     <div class="choosetype">
         <div >
             <h1>Type 선택</h1>
@@ -24,13 +26,13 @@
     <div class="moveButton">
         <button @click="pageMove">생성</button>
     </div>
-
+    </div>
 </template>
 
 <script setup>
     import { ref  } from 'vue';
     import { useRouter } from 'vue-router';
-
+    import Header from '@/components/Header.vue';
 
     const selectedSize = ref('2');
 
