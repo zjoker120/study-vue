@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import SelectType from "/src/components/SelectType";
-import InputPop from "/src/components/InputPop";
+// import SelectType from "/src/components/SelectType";
+// import InputPop from "/src/components/InputPop";
 
 
 const router = createRouter({

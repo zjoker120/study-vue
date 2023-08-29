@@ -1,49 +1,49 @@
 <template>
   <div>
     <Header />
-  <div class="Push">
-    <p class="inputText">입력:</p>
-    <div>
-      <input :type="selectedType === 'number' ? 'number' : 'text'"
-             v-model="inputValue"
-             maxlength="5"
-             @input="handleInput"
-      />
-      <button @click="pushClick" class="pushButton">Push</button>
-    </div>
-  </div>
-  <div class="pop">
-    <div>
-      <p>추출</p>
-      <button @click="popClick">Pop</button>
-      <p>pop: {{ popValue }}</p>
-    </div>
-  </div>
-  <div class="v-line">
-    <button @click="resetStack" class="resetButton">Reset</button>
-    <label class="stackText">스택 이미지</label>
-    <div class="stack-container">
-      <div v-if="stackState.length > 0" class="outer-box">
-        <div class="stack-box" v-for="(item, index) in stackState" :key="index" >{{ item }}</div>
+      <div class="Push">
+        <p class="inputText">입력:</p>
+        <div>
+          <input :type="selectedType === 'number' ? 'number' : 'text'"
+                 v-model="inputValue"
+                 maxlength="5"
+                 @input="handleInput"
+          />
+          <button @click="pushClick" class="pushButton">Push</button>
+        </div>
       </div>
-    </div>
+      <div class="pop">
+        <div>
+          <p>추출</p>
+          <button @click="popClick">Pop</button>
+          <p>pop: {{ popValue }}</p>
+        </div>
+      </div>
+      <div class="v-line">
+        <button @click="resetStack" class="resetButton">Reset</button>
+        <label class="stackText">스택 이미지</label>
+        <div class="stack-container">
+          <div v-if="stackState.length > 0" class="outer-box">
+            <div class="stack-box" v-for="(item, index) in stackState" :key="index" >{{ item }}</div>
+          </div>
+        </div>
 
-    <label class="logText">로그 메세지</label>
-    <div class="area-container">
-      <textarea class="downScroll" rows="10" cols="20" v-model="textAreaValue"></textarea>
-    </div>
-  </div>
-  <div class="info">
-    <p>Selected Type: {{ this.$route.query.selectedType }}</p>
-    <p>Selected Size: {{ this.$route.query.selectedSize }}</p>
-  </div>
+        <label class="logText">로그 메세지</label>
+        <div class="area-container">
+          <textarea class="downScroll" rows="10" cols="20" v-model="textAreaValue"></textarea>
+        </div>
+      </div>
+      <div class="info">
+        <p>Selected Type: {{ this.$route.query.selectedType }}</p>
+        <p>Selected Size: {{ this.$route.query.selectedSize }}</p>
+      </div>
   </div>
 </template>
 
 <script setup>
   import { ref } from 'vue';
   import {useRoute, useRouter} from 'vue-router';
-  import Header from '@/components/Header.vue';
+  import Header from '@/components/AppHeader.vue';
 
   const route = useRoute();
   const routes = useRouter();
@@ -144,12 +144,13 @@
   }
   /*가운데 선*/
   .v-line{
-    border-left: solid #000;
-    height: 50%;
+    border-left: 2px solid #000;
+    height: calc(100% - 80px);
     left: 50%;
-    position: relative;
+    transform: translateX(-50%);
+    position: absolute;
     align-items: center;
-    margin-top: 0px;
+    top: 120px;
   }
   /*input 입력/버튼 */
   .Push {

@@ -32,7 +32,7 @@
 <script setup>
     import { ref  } from 'vue';
     import { useRouter } from 'vue-router';
-    import Header from '@/components/Header.vue';
+    import Header from '@/components/AppHeader.vue';
 
     const selectedSize = ref('2');
 
