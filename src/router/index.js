@@ -16,6 +16,11 @@ const router = createRouter({
             name: "InputPop",
             component: () => import("../components/InputPop.vue"),
         },
+        {
+            path: "/test",
+            name: "test",
+            component: () => import("../components/TestVues.vue"),
+        },
     ],
 });
 

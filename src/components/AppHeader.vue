@@ -3,7 +3,8 @@
         <div>
             <ul>
                 <router-link to="/">Home</router-link> |
-                <router-link to="/InputPop">Stack</router-link>
+                <router-link to="/InputPop">Stack</router-link> |
+                <router-link to="/test">test</router-link>
             </ul>
         </div>
     </header>
