@@ -1,6 +1,5 @@
 <template>
     <header class="Header">
-        <span>Stack!</span>
         <div>
             <ul>
                 <router-link to="/">Home</router-link> |
