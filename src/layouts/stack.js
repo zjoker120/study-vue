@@ -16,7 +16,6 @@ const logText = document.getElementById("logText");
 let stackValue = [];
 
 popBtn.addEventListener("click",()=>{
-    console.log('pop버튼',popBtn.value);
     if(stackValue.length > 0){
         const popValues = stackValue.pop();
         popValue.textContent = `pop: ${popValues}`;
@@ -33,20 +32,21 @@ inputBtn.addEventListener("click",()=>{
         alert("입력값을 적지 않았습니다.");
         return;
     }
-    console.log("입력값",inputText.value)
     stackValue.push(inputValue);
     updateStackContainer(`입력: ${inputValue}`);
     inputText.value = "";
 });
 
-resetBtn.addEventListenerZ("click",()=>{
+resetBtn.addEventListener("click",()=>{
     console.log("리셋버튼",resetBtn.value);
     stackValue.length = 0;
     stackContainer.innerHTML = "";
+    logText.value = "";
 })
 
-function updateStackContainer(){
-    // stackContainer.textContent = stackValue.join("\n");
+function updateStackContainer(message){
     stackContainer.innerHTML = stackValue.reverse().map(item => `<div>${item}</div>`).join("");
+    logText.value = `${message}\n` + logText.value;
     stackValue.reverse();
+
 }
