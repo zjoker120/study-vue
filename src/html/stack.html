@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack</title>
+    <style>
+        /* 스타일은 여기에 작성 */
+        .inpush {
+            display: flex;
+        }
+        /* 버튼위치 */
+        .inputBtn{
+            margin-left: 10px;
+            margin-top: 15px;
+        }
+
+        .left{
+            width: 50%;
+            float: left;
+        }
+        .right{
+            width: 50%;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <!-- Header-->
+    </div>
+    <div class="left">
+        <div class="inpush">
+            <p>입력 :</p>
+            <div class="inputBtn">
+                <input id="inputText" type="text" maxlength="5" />
+                <button id="inputBtn">push</button>
+            </div>
+        </div><!--입력 끝-->
+        <div>
+            <div>
+                <p>추출 :</p>
+                <button id="popBtn">pop</button>
+            </div>
+        </div> <!--추출 끝-->
+    </div>
+    <div class="right">
+        <div>
+            <button id="resetBtn">스택 초기화</button>
+            <p>스택 모음</p>
+            <div id="stackContainer">
+
+            </div>
+        </div><!--스택 끝-->
+        <div>
+            <p>로그 메세지</p>
+            <textarea id="logText"></textarea>
+        </div><!--로그 끝-->
+    </div>
+</div><!--처음과 마지막 div-->
+<script src="stackjs.js"></script>
+</body>
+</html>

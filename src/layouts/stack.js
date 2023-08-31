@@ -1,60 +1,30 @@
-class Stack {
-    constructor() {
-        this.items = [];
+//inputText 입력값
+const inputText = document.getElementById("inputText");
+//입력 버튼
+const inputBtn = document.getElementById("inputBtn");
+//팝버튼
+const popBtn =document.getElementById("popBtn");
+//초기화 버튼
+const resetBtn = document.getElementById("resetBtn");
+//스택 이미지 
+const stackContainer = document.getElementById("stackContainer");
+
+const stackValue = [];
+
+popBtn.addEventListener("click",()=>{
+    console.log('pop버튼',popBtn.value);
+});
+
+inputBtn.addEventListener("click",()=>{
+    console.log("입력버튼",inputBtn.value);
+    const inputValue = inputText.value;
+    if(inputValue ===""){
+        alert("입력값을 적지 않았습니다.");
+        return;
     }
+    stackValue.push(inputValue);
+});
 
-    // 스택에 요소를 추가하는 메서드
-    push(element) {
-        this.items.push(element);
-    }
-
-    // 스택에서 가장 위의 요소를 제거하고 반환하는 메서드
-    pop() {
-        if (this.isEmpty()) {
-            return "Stack is empty";
-        }
-        return this.items.pop();
-    }
-
-    // 스택의 가장 위에 있는 요소를 반환하는 메서드
-    peek() {
-        if (this.isEmpty()) {
-            return "Stack is empty";
-        }
-        return this.items[this.items.length - 1];
-    }
-
-    // 스택이 비어있는지 확인하는 메서드
-    isEmpty() {
-        return this.items.length === 0;
-    }
-
-    // 스택의 크기를 반환하는 메서드
-    size() {
-        return this.items.length;
-    }
-
-    // 스택의 모든 요소를 문자열로 반환하는 메서드
-    toString() {
-        return this.items.toString();
-    }
-
-    // 스택을 초기화하는 메서드
-    clear() {
-        this.items = [];
-    }
-}
-
-// 스택 사용 예시
-const stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-
-console.log(stack.peek()); // 3
-console.log(stack.pop()); // 3
-console.log(stack.size()); // 2
-console.log(stack.isEmpty()); // false
-console.log(stack.toString()); // 1, 2
-stack.clear();
-console.log(stack.isEmpty()); // true
+resetBtn.addEventListener("click",()=>{
+    console.log("리셋버튼",resetBtn.value);
+})

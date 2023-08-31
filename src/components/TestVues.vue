@@ -6,6 +6,9 @@
             <p class="center">This paragraph will be red and center-aligned.</p>
         </div>
     </div>
+    <div>
+        
+    </div>
 </template>
 
 <script setup>
@@ -15,6 +18,6 @@
 <style scoped>
     p.center {
         text-align: center;
-        color: red;
+        color: #ff0000;
     }
 </style>
