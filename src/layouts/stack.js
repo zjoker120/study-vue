@@ -10,6 +10,9 @@ const resetBtn = document.getElementById("resetBtn");
 const stackContainer = document.getElementById("stackContainer");
 //팝추출 값
 const popValue = document.getElementById("popValue");
+//로그 메세지
+const logText = document.getElementById("logText");
+
 let stackValue = [];
 
 popBtn.addEventListener("click",()=>{
@@ -33,15 +36,17 @@ inputBtn.addEventListener("click",()=>{
     console.log("입력값",inputText.value)
     stackValue.push(inputValue);
     updateStackContainer(`입력: ${inputValue}`);
-    inputValue = "";
+    inputText.value = "";
 });
 
-resetBtn.addEventListener("click",()=>{
+resetBtn.addEventListenerZ("click",()=>{
     console.log("리셋버튼",resetBtn.value);
     stackValue.length = 0;
     stackContainer.innerHTML = "";
 })
 
 function updateStackContainer(){
-    stackContainer.textContent = stackValue.join("\n");
+    // stackContainer.textContent = stackValue.join("\n");
+    stackContainer.innerHTML = stackValue.reverse().map(item => `<div>${item}</div>`).join("");
+    stackValue.reverse();
 }
