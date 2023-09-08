@@ -7,20 +7,29 @@ const router = createRouter({
     history: createWebHistory(""),
     routes: [
         {
-            path: "/",
-            name: "SelectType",
-            component: () => import("../components/SelectType.vue"),
+            path: '/',
+            name: 'mainLayout',
+            component: () => import('../layouts/mainLayout.vue'),
+            redirect: '/SelectType',
+            children: [
+                {
+                    path: "/SelectType",
+                    name: "SelectType",
+                    component: () => import("../components/SelectType.vue"),
+                },
+                {
+                    path: "/InputPop",
+                    name: "InputPop",
+                    component: () => import("../components/InputPop.vue"),
+                },
+                {
+                    path: "/test",
+                    name: "test",
+                    component: () => import("../components/TestVues.vue"),
+                },
+            ],
         },
-        {
-            path: "/InputPop",
-            name: "InputPop",
-            component: () => import("../components/InputPop.vue"),
-        },
-        {
-            path: "/test",
-            name: "test",
-            component: () => import("../components/TestVues.vue"),
-        },
+
     ],
 });
 

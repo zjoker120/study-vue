@@ -1,7 +1,6 @@
 <template>
   <div>
-    <Header />
-      <div class="Push">
+        <div class="Push">
         <p class="inputText">입력:</p>
         <div>
           <input :type="selectedType === 'number' ? 'number' : 'text'"
@@ -43,7 +42,6 @@
 <script setup>
   import { ref } from 'vue';
   import {useRoute, useRouter} from 'vue-router';
-  import Header from '@/components/AppHeader.vue';
 
   const route = useRoute();
   const routes = useRouter();

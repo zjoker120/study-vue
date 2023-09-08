@@ -1,38 +1,36 @@
 <template>
     <div>
-        <Header />
-    <div class="choosetype">
-        <div >
-            <h1>Type 선택</h1>
-            <div>
-                <label>
-                    <input type="radio" v-model="selectedType" value="string" /> 문자열
-                </label>
+        <div class="choosetype">
+            <div >
+                <h1>Type 선택</h1>
+                <div>
+                    <label>
+                        <input type="radio" v-model="selectedType" value="string" /> 문자열
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" v-model="selectedType" value="number" /> 숫자
+                    </label>
+                </div>
+                <p>선택된 타입: {{ selectedType }}</p>
             </div>
-            <div>
-                <label>
-                    <input type="radio" v-model="selectedType" value="number" /> 숫자
-                </label>
-            </div>
-            <p>선택된 타입: {{ selectedType }}</p>
         </div>
-    </div>
-    <div class="size">
-        <label for="boxSize">크기: </label>
-        <select v-model="selectedSize" id="boxSize">
-            <option v-for="size in sizes" :key="size" :value="size">{{ size }}</option>
-        </select>
-    </div>
-    <div class="moveButton">
-        <button @click="pageMove">생성</button>
-    </div>
+        <div class="size">
+            <label for="boxSize">크기: </label>
+            <select v-model="selectedSize" id="boxSize">
+                <option v-for="size in sizes" :key="size" :value="size">{{ size }}</option>
+            </select>
+        </div>
+        <div class="moveButton">
+            <button @click="pageMove">생성</button>
+        </div>
     </div>
 </template>
 
 <script setup>
     import { ref  } from 'vue';
     import { useRouter } from 'vue-router';
-    import Header from '@/components/AppHeader.vue';
 
     const selectedSize = ref('2');
 

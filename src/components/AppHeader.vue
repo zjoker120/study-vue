@@ -6,6 +6,12 @@
                 <router-link to="/InputPop">Stack</router-link> |
                 <router-link to="/test">test</router-link>
             </ul>
+            <div>
+                <slot name="top"></slot>
+            </div>
+            <div>
+                <slot name="bottom"></slot>
+            </div>
         </div>
     </header>
 </template>
