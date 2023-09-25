@@ -1,52 +1,33 @@
-//inputText 입력값
-const inputText = document.getElementById("inputText");
-//입력 버튼
-const inputBtn = document.getElementById("inputBtn");
-//팝버튼
-const popBtn =document.getElementById("popBtn");
-//초기화 버튼
-const resetBtn = document.getElementById("resetBtn");
-//스택 이미지
-const stackContainer = document.getElementById("stackContainer");
-//팝추출 값
-const popValue = document.getElementById("popValue");
-//로그 메세지
-const logText = document.getElementById("logText");
-
-let stackValue = [];
-
-popBtn.addEventListener("click",()=>{
-    if(stackValue.length > 0){
-        const popValues = stackValue.pop();
-        popValue.textContent = `pop: ${popValues}`;
-        updateStackContainer(`추출: ${popValues}`);
-    }else {
-        popValue.textContent = "pop:";
-        alert("마지막 추출입니다.");
-    }
-});
-
-inputBtn.addEventListener("click",()=>{
-    let inputValue = inputText.value;
-    if(inputValue ===""){
-        alert("입력값을 적지 않았습니다.");
+//스택 추가
+export const pushClickHandler = (inputValue, stackState, selectedSize) => {
+    if (inputValue.value === null || inputValue.value === '') {
         return;
     }
-    stackValue.push(inputValue);
-    updateStackContainer(`입력: ${inputValue}`);
-    inputText.value = "";
-});
+    if (stackState.value.length >= selectedSize) {
+        alert("더이상 입력하실수 없습니다.");
+        return;
+    }
+    // const pushMessage = `입력: ${inputValue.value}`;
+    // stackState.value.push(inputValue.value);
+    //  updateStackState(pushMessage);
+    // inputValue.value = '';
+};
 
-resetBtn.addEventListener("click",()=>{
-    console.log("리셋버튼",resetBtn.value);
-    stackValue.length = 0;
-    stackContainer.innerHTML = "";
-    logText.value = "";
-})
+//팝업 추출
+export const popClickHandler = (stackState, popValue) => {
+    if (stackState.value.length > 0) {
+        const poppedValue = stackState.value.pop();
+        popValue.value = poppedValue;
+        // updateStackState(`추출: ${poppedValue}`);
+    } else {
+        popValue.value = '';
+        alert("마지막추출입니다.");
+    }
+};
 
-function updateStackContainer(message){
-    stackContainer.innerHTML = stackValue.reverse().map(item => `<div>${item}</div>`).join("");
-    logText.value = `${message}\n` + logText.value;
-    stackValue.reverse();
-
-}
+//스택이미지 초기화
+export const resetStackHandler = (routes) => {
+    routes.push({
+        path: '/',
+    });
+};
