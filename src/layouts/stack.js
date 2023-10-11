@@ -32,3 +32,12 @@ export const resetStack = (routes) => {
     });
 };
 
+export function pageData(routes, selectedType, selectedSize) {
+  routes.push({
+            path: '/InputPop',
+            query: {
+                selectedType,
+                selectedSize,
+            },
+        });
+    }

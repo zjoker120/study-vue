@@ -31,6 +31,7 @@
 <script setup>
     import { ref  } from 'vue';
     import { useRouter } from 'vue-router';
+    import { pageData } from '../layouts/stack';
 
     const selectedSize = ref('2');
 
@@ -41,15 +42,8 @@
     const sizes = Array.from({ length: 10 }, (_, index) => (index + 1).toString());
     //버튼 클릭시 이벤트 발생
     const pageMove = () => {
-        routes.push({
-            path: '/InputPop',
-            query: {
-                selectedType: selectedType.value,
-                selectedSize: selectedSize.value,
-            },
-        });
+        pageData(routes, selectedType.value, selectedSize.value);
     };
-
 
 </script>
 
