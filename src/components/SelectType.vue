@@ -39,7 +39,7 @@
 
     const selectedType = ref('string');
     //스택갯수 조절 1-99까지
-    const sizes = Array.from({ length: 10 }, (_, index) => (index + 1).toString());
+    const sizes = Array.from({ length: 99 }, (_, index) => (index + 1).toString());
     //버튼 클릭시 이벤트 발생
     const pageMove = () => {
         pageData(routes, selectedType.value, selectedSize.value);
